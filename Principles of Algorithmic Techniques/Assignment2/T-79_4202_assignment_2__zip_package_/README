@@ -1,0 +1,31 @@
+Test inputs and outputs for programming assignment 2
+
+
+In the subdirectories asgn02_1a, asgn02_1b, asgn02_2a, and asgn02_2b,
+you will find example graphs for testing your solutions to the
+respective programming problems.  Each file asgn02_NN/XX.graph
+contains a single graph in DIMACS format, and the file
+asgn02_NN/XX.outputs contains the corresponding output produced by a
+valid solution to problem NN.  If there are several correct outputs,
+XX.outputs contains one correct output per line.
+
+The unix "grep" command can be used to test whether your program
+outputs a line that is present in a file, e.g.
+
+  myprogram <01.graph | grep -c -x -f 01.outputs
+
+The above command line prints "1" if the output of "myprogram" is one
+of the correct outputs in the file 01.outputs, and "0" if the output
+is not correct.
+
+
+Visualizing graphs (optional):
+
+If your system has a Python 2.x interpreter and the Graphviz dotty
+tool installed, you can try to visualize the graphs using the script
+dimacs_to_dot.py provided in this package.  For example:
+
+  python dimacs_to_dot.py <asgn02_1a/01.graph | dotty -
+
+(Note the minus sign in the end.)  If the file is supposed to
+represent an undirected graph, just ignore the arrowheads.
