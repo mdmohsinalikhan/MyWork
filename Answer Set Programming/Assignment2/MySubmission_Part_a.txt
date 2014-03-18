@@ -1,0 +1,43 @@
+%creating domain
+time(0..k).
+bucket(I) :- init(I, C, V, W).
+csbucket(I,V,0) :- init(I, C, V, W).
+capbucket(I,C) :- init(I, C, V, W).
+targetbucket(I,W,k) :- init(I, C, V, W).
+
+
+%making decisions
+{ pour(I,J,T) } :- csbucket(I,VI,T), csbucket(J,VJ,T), time(T;T+1), I != J, capbucket(J,CJ), VJ < CJ, VI > 0, bucket(I), bucket(J).
+src(I,T):-pour(I,J,T).
+dst(J,T):-pour(I,J,T).
+
+
+%effect of actions
+csbucket(I, 0, T+1) :- pour(I, J, T), csbucket(I,VI,T),csbucket(J,VJ,T),capbucket(J,CJ), bucket(I), bucket(J), VI+VJ <= CJ.
+csbucket(J, VI+VJ, T+1) :- pour(I, J, T), csbucket(I,VI,T),csbucket(J,VJ,T),capbucket(J,CJ), bucket(I), bucket(J), VI+VJ <= CJ.
+
+
+csbucket(I, VI-CJ+VJ, T+1) :- pour(I, J, T), csbucket(I,VI,T),csbucket(J,VJ,T),capbucket(J,CJ), bucket(I), bucket(J), VI+VJ > CJ.
+csbucket(J, CJ, T+1) :- pour(I, J, T), csbucket(I,VI,T), csbucket(J,VJ,T), capbucket(J,CJ), bucket(I), bucket(J), VI+VJ > CJ.
+
+%frame axiom
+csbucket(K, VK, T+1) :- pour(I, J, T), csbucket(I, VI, T), csbucket(J, VJ, T), csbucket(K, VK, T), I != K, J != K, bucket(I), bucket(J), bucket(K).
+{csbucket(I, W, T+1)} :- csbucket(I, W, T), targetbucket(I, W, k), bucket(I), time(T;T+1).
+
+
+
+%rule:
+:- not csbucket(I,W,k), targetbucket(I,W,k), bucket(I), time(k).
+:- pour(I, J, T), pour(K, L, T), time(T), K != I,  K != J, L != I, L != J, bucket(I), bucket(J), bucket(K), bucket(L).
+:- pour(I, J, T), pour(I, K, T), time(T), J != K, bucket(I), bucket(J), bucket(K).
+:- pour(I, J, T), pour(K, I, T), time(T), bucket(I), bucket(J), bucket(K).
+:- pour(I, J, T), pour(J, K, T), time(T), bucket(I), bucket(J), bucket(K).
+:- pour(I, J, T), pour(K, J, T), time(T), I != K, bucket(I), bucket(J), bucket(K).
+:- pour(I, J, T), pour(J, I, T), time(T), bucket(I), bucket(J).
+:- pour(I, J, k), bucket(I),bucket(J), time(k).
+:- csbucket(I, W, T), csbucket(I, U, T), W != U.
+
+#hide.
+#show init(I, C, V, W). 
+#show src/2.
+#show dst/2.
