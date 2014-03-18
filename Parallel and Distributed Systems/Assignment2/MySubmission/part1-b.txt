@@ -1,0 +1,40 @@
+I have run ispin part1-a.pml. Then from graphical interface i have run the verification with the default Safety, Liveness, Storage Mode, Never Claims, Search Mode, Options
+
+verification result:
+spin -a  part1-a.pml
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 22681
+pan:1: invalid end state (at depth 47)
+pan: wrote part1-a.pml.trail
+
+(Spin Version 6.1.0 -- 4 May 2011)
+Warning: Search not completed
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 164 byte, depth reached 49, errors: 1
+       25 states, stored
+        2 states, matched
+       27 transitions (= stored+matched)
+       14 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.005	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states (unsuccessful compression: 6282.00%)
+         	state-vector as stored = 12033 byte + 28 byte overhead
+    4.000	memory used for hash table (-w19)
+    0.534	memory used for DFS stack (-m10000)
+    4.730	total actual memory usage
+
+
+pan: elapsed time 0 seconds
+To replay the error-trail, goto Simulate/Replay and select "Run"
+
+
