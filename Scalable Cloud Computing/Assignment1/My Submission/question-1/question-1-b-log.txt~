@@ -1,0 +1,35 @@
+added manifest
+adding: org/(in = 0) (out= 0)(stored 0%)
+adding: org/apache/(in = 0) (out= 0)(stored 0%)
+adding: org/apache/hadoop/(in = 0) (out= 0)(stored 0%)
+adding: org/apache/hadoop/examples/(in = 0) (out= 0)(stored 0%)
+adding: org/apache/hadoop/examples/TopCount$IntSumReducer.class(in = 1798) (out= 758)(deflated 57%)
+adding: org/apache/hadoop/examples/TopCount.class(in = 1907) (out= 996)(deflated 47%)
+adding: org/apache/hadoop/examples/TopCount$TokenizerMapper.class(in = 1787) (out= 764)(deflated 57%)
+13/11/01 13:59:16 INFO input.FileInputFormat: Total input paths to process : 1
+13/11/01 13:59:16 INFO mapred.JobClient: Running job: job_201311011316_0006
+13/11/01 13:59:17 INFO mapred.JobClient:  map 0% reduce 0%
+13/11/01 13:59:26 INFO mapred.JobClient:  map 100% reduce 0%
+13/11/01 13:59:38 INFO mapred.JobClient:  map 100% reduce 100%
+13/11/01 13:59:40 INFO mapred.JobClient: Job complete: job_201311011316_0006
+13/11/01 13:59:40 INFO mapred.JobClient: Counters: 17
+13/11/01 13:59:40 INFO mapred.JobClient:   Job Counters 
+13/11/01 13:59:40 INFO mapred.JobClient:     Launched reduce tasks=1
+13/11/01 13:59:40 INFO mapred.JobClient:     Launched map tasks=1
+13/11/01 13:59:40 INFO mapred.JobClient:     Data-local map tasks=1
+13/11/01 13:59:40 INFO mapred.JobClient:   FileSystemCounters
+13/11/01 13:59:40 INFO mapred.JobClient:     FILE_BYTES_READ=113
+13/11/01 13:59:40 INFO mapred.JobClient:     HDFS_BYTES_READ=140822
+13/11/01 13:59:40 INFO mapred.JobClient:     FILE_BYTES_WRITTEN=258
+13/11/01 13:59:40 INFO mapred.JobClient:     HDFS_BYTES_WRITTEN=85
+13/11/01 13:59:40 INFO mapred.JobClient:   Map-Reduce Framework
+13/11/01 13:59:40 INFO mapred.JobClient:     Reduce input groups=11
+13/11/01 13:59:40 INFO mapred.JobClient:     Combine output records=11
+13/11/01 13:59:40 INFO mapred.JobClient:     Map input records=5153
+13/11/01 13:59:40 INFO mapred.JobClient:     Reduce shuffle bytes=0
+13/11/01 13:59:40 INFO mapred.JobClient:     Reduce output records=11
+13/11/01 13:59:40 INFO mapred.JobClient:     Spilled Records=22
+13/11/01 13:59:40 INFO mapred.JobClient:     Map output bytes=215587
+13/11/01 13:59:40 INFO mapred.JobClient:     Combine input records=18890
+13/11/01 13:59:40 INFO mapred.JobClient:     Map output records=18890
+13/11/01 13:59:40 INFO mapred.JobClient:     Reduce input records=11
