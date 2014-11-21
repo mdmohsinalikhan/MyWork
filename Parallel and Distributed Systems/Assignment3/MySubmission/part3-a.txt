@@ -1,0 +1,2 @@
+Yes, My FPU Controller guarantee progress of each core in the sense that if core(i) has sent the (req_fpu,any) message to the FPU controller, then the FPU controller will also eventually grant some FPU to core(i) by sending it a message of the form
+(grant_fpu,j) for some 0 <= j <= M-1

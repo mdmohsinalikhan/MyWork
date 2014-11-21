@@ -1,0 +1,49 @@
+I have run ispin part1-a.pml. Then from graphical interface i have run the verification with the default Safety, Liveness, Storage Mode, Never Claims and Search Mode Options
+
+verification result:
+spin -a  part2-a.pml
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 23173
+error: max search depth too small
+
+(Spin Version 6.1.0 -- 4 May 2011)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 164 byte, depth reached 9999, errors: 0
+    47850 states, stored
+    80446 states, matched
+   128296 transitions (= stored+matched)
+       21 atomic steps
+hash conflicts:      1262 (resolved)
+
+Stats on memory usage (in Megabytes):
+    8.762	equivalent memory usage for states (stored*(State-vector + overhead))
+    4.659	actual memory usage for states (compression: 53.18%)
+         	state-vector as stored = 74 byte + 28 byte overhead
+    4.000	memory used for hash table (-w19)
+    0.534	memory used for DFS stack (-m10000)
+    9.124	total actual memory usage
+
+unreached in proctype sending_user
+	part2-a.pml:17, state 7, "-end-"
+	(1 of 7 states)
+unreached in proctype receiving_user
+	part2-a.pml:32, state 9, "-end-"
+	(1 of 9 states)
+unreached in proctype node
+	part2-a.pml:87, state 210, "-end-"
+	(1 of 210 states)
+unreached in init
+	(0 of 22 states)
+
+pan: elapsed time 0.18 seconds
+No errors found -- did you verify all claims?
+
+

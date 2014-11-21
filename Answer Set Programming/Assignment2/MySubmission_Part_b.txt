@@ -1,0 +1,1 @@
+init(1,8,8,4) init(2,5,0,4) init(3,3,0,0) src(2,1) src(3,2) src(3,6) src(2,5) src(1,4) src(2,3) src(1,0) dst(3,1) dst(1,2) dst(1,6) dst(3,5) dst(2,4) dst(3,3) dst(2,0)

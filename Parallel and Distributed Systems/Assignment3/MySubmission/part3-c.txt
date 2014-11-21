@@ -1,0 +1,4 @@
+Whenever the FPU controller is receiving a (req_fpu,any) message it first checks whether there is any FPU free at that moment which can be granted. 
+If there is no such then that means some other cores are using all of them and eventually they will be freed by them.
+So the FPU  controller waits for at least one of the FPUs to be freed. When a FPU is freed by a core by sending the (free_fpu,j) message to the from_core channel,then the FPU controller reads the (free_fpu,j) message and it just grant the freed FPU
+to the core who is requesing for any FPU. Thus it is guaranted that if there is a request for an FPU eventually it will be granted.

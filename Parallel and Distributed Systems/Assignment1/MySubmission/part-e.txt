@@ -1,0 +1,47 @@
+verification result:
+spin -a  part-d.pml
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 11780
+
+(Spin Version 6.1.0 -- 4 May 2011)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 76 byte, depth reached 2923, errors: 0
+     6960 states, stored
+     4007 states, matched
+    10967 transitions (= stored+matched)
+        0 atomic steps
+hash conflicts:        28 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.690	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.577	actual memory usage for states (compression: 83.62%)
+         	state-vector as stored = 59 byte + 28 byte overhead
+    4.000	memory used for hash table (-w19)
+    0.534	memory used for DFS stack (-m10000)
+    5.022	total actual memory usage
+
+unreached in proctype elevator
+	part-d.pml:19, state 12, "-end-"
+	(1 of 12 states)
+unreached in proctype floor_button_input
+	part-d.pml:29, state 8, "-end-"
+	(1 of 8 states)
+unreached in proctype elevator_button_input
+	part-d.pml:39, state 8, "-end-"
+	(1 of 8 states)
+unreached in proctype controller
+	part-d.pml:94, state 46, "-end-"
+	(1 of 46 states)
+
+pan: elapsed time 0.01 seconds
+No errors found -- did you verify all claims?
+
+
