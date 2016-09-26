@@ -1,0 +1,33 @@
+
+pentomino(P,O):- occupy(P,O,X,Y).
+placedpento(P):- put(P,O,X,Y).
+
+{put(P,O,X,Y)}:-pentomino(P,O),x(X),y(Y).
+
+
+
+x(1..k).
+y(1..60/k).
+
+put(P,O,X,Y) :- fix(P,O,X,Y),x(X),y(Y).
+filled(P,O,X+W,Y+Z) :- put(P,O,X,Y),occupy(P,O,W,Z).
+placed(P,O):-put(P,O,X,Y).
+xloc(P,X) :- put(P,O,X,Y).
+yloc(P,Y) :- put(P,O,X,Y).
+
+
+:- 2{filled(P,O,X,Y)},x(X),y(Y). % ensuring that a square is not occupied by two separate pentomino
+:- 2{put(P,O,X,Y)},x(X),y(Y). % ensuring that it doesnt put more thn one pentomino in the same square
+:- 2{put(P,O,X,Y):x(X):y(Y)},pentomino(P,O). % ensuring that it doesnt put one pentomino at more than one square 
+:- not placedpento(P),pentomino(P,O). % ensuring that every pentomino is there at least once
+:- filled(P,O,X,Y),not x(X),put(P,O,W,Z), x(W), y(Z). % ensuring that after putting a pentomino it doesnt occupy a square outside the rectangle
+:- filled(P,O,X,Y),not y(Y),put(P,O,W,Z), x(W), y(Z). % ensuring that after putting a pentomino it doesnt occupy a square outside the rectangle
+:- fix(P,O,X,Y),not x(X). % think about this line before submitting
+:- fix(P,O,X,Y),not y(Y). % think about this line before submitting
+
+
+#hide.
+#show fix/4.
+#show placed/2.
+#show xloc/2.
+#show yloc/2.

@@ -1,0 +1,159 @@
+************************
+Programming assignment 3
+************************
+
+The files:
+asgn03_1X/0X.graph			input files
+asgn03_1X/0X.result			solution files for individual instances
+asgn03_1X/checker03_1X_kosh.pyc		checker for problem 1a/b
+                                          (runs only in kosh.aalto.fi)
+asgn03_2X/0X.data			input files
+asgn03_2X/results2X.txt			grouped solution files
+
+Checking correctness of your solution in problem 1X (i.e., 1a or 1b):
+There are several different correct solutions, and just one is given
+for 01.graph in 01.result. Instead of an extensive list of correct
+solutions you get a compiled python program checker03_1X_kosh.pyc.
+The program has been compiled in kosh.aalto.fi, which means the
+checker should be run on the same machine through an ssh connection.
+Connect kosh.aalto.fi, make sure you have your files there, and type
+"python checker03_1X_kosh.pyc" to get help with usage.
+
+The checker programs are fragile. Some basic types of invalid solutions 
+are handled properly and give printings of incorrectness, but others 
+may cause the checker to crash. If your output is valid, the last line 
+of execution prints "Ok!".
+
+
+
+**********************
+Input/output interface
+**********************
+
+*************************
+1(a) Minimal vertex cover
+
+Input
+
+A graph with n vertices, in DIMACS format. You may assume that n < 500.
+
+p edge n m
+e u v
+...
+
+
+Output
+
+As the last line, print the string ``Cover:'' and elements of your 
+vertex cover S. For nodes 9, 23, 3, and 7 one would print:
+
+Cover: 9 23 3 7
+
+Furthermore, your program should print some intermediate results of 
+your choice to help you demonstrate how your program works, but please 
+note that the intermediate results should not use the string ``Cover:''
+ used in the final result line.
+
+
+******************************
+1(b) Bottleneck spanning trees
+
+Input
+
+A graph representing height limits (integers in centimeters) between 
+cities. The graph is in the DIMACS format, with an additional integer 
+after each edge representing the height limit on this edge. Any 
+nonexistent edge is interpreted as having height limit 0.
+
+p edge n m
+e u v value
+...
+
+
+Output
+
+Give each spanning tree edge on its own line, in the format 
+``u v value''. As the last line, give ``bottleneck:'' and the 
+bottleneck edge value (that is, height of vehicle).
+
+Example:
+
+1 2 220
+2 3 400
+1 4 333
+bottleneck: 220
+
+
+
+**************************************
+2(a) Optimizing fuel station locations
+
+Input
+
+The input file contains 2+n integers and n double floats, 
+divided into three lines as follows:
+
+k n
+m_1 m_2	... m_n
+p_1 p_2 ... p_n 
+
+
+Output
+
+You are assumed to solve the problem using dynamic programming, 
+so the program should be solving some kind of smaller subproblems 
+one after another. Whenever your dynamic program solves a 
+(previously unsolved) subproblem optimally, print two lines in 
+the following format:
+
+#s profit: v 
+placements: mi_1 mi_2 ... mi_l
+
+where s is the subproblem index, v is the solution value, and 
+mi_1 < mi_2 < ... mi_l are the mile values of selected locations.
+
+For example, opening locations 1, 86, 44, and 143 for subproblem 
+180 with profit 320.34 corresponds to output lines:
+
+#180 profit: 320.34
+placements: 1 44 86 143
+
+
+
+************************************************
+2(b) Constructing change from coin denominations
+
+Input
+
+The input file contains 2+n integers: the target value v, 
+the number of denominations n, and the coin values x_j, divided 
+into two lines as follows:
+
+v n
+x_1 x_2 ... x_n
+
+You may assume that n < 40 and v < 50000.
+
+
+Output
+
+Print a way of decomposing the target change into coins in the form
+
+[target] = [multiplicity]*[coin denomination] + [multiplicity]*[coin denomination] + ...
+
+where the coin denominations are reported in order from the largest 
+to the smallest denomination. Coin denominations with zero multiplicity 
+should not be reported. For example, if one is using three coins of
+value 4 and four coins of value 5 (and no coins of other values) to 
+construct change of 32, print the line:
+
+32 = 4*5 + 3*4
+
+In case one cannot form the desired value 32 with the given coins, 
+print a message indicating this:
+
+Cannot form change of 32.
+
+
+***********************************************
+***********************************************

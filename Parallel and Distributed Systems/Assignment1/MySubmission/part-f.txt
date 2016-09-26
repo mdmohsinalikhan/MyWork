@@ -1,0 +1,5 @@
+ The elevator is not fair.
+
+ It is not possible that the elevator will ignore a request forever. It may be delayed. 
+
+ But once a request is received in the elevator_button channel or floo_button channel it will be served anyway.

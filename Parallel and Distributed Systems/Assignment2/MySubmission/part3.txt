@@ -1,0 +1,1 @@
+As it is any other protocol, as per my understanding it will not be guaranteed that if N=4 it will aslo be deadlock free as well.
